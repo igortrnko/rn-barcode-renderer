@@ -1,0 +1,36 @@
+{
+  "name": "rn-barcode-renderer-monorepo",
+  "private": true,
+  "workspaces": [
+    "lib",
+    "example"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "lint": "eslint --ext .js,.ts,.tsx example lib",
+    "typecheck": "tsc --noEmit",
+    "build": "shx cp README.md ./lib/README.md && yarn workspace rn-barcode-renderer build",
+    "dev:lib": "yarn workspace rn-barcode-renderer dev",
+    "dev:example": "yarn workspace example start",
+    "dev": "concurrently -n lib,example -c blue,green \"yarn dev:lib\" \"yarn dev:example\"",
+    "dev:ios": "concurrently -n lib,example -c blue,green \"yarn dev:lib\" \"yarn dev:example --ios\"",
+    "check:code": "yarn lint && yarn typecheck"
+  },
+  "devDependencies": {
+    "@types/node": "^20.12.7",
+    "@typescript-eslint/eslint-plugin": "^7.6.0",
+    "@typescript-eslint/parser": "^7.6.0",
+    "concurrently": "^8.2.2",
+    "eslint": "^8.46.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-import-resolver-typescript": "^3.6.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-prettier": "^5.0.0",
+    "eslint-plugin-react": "^7.33.1",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "prettier": "^3.0.1",
+    "shx": "^0.3.4",
+    "typescript": "^5.1.6"
+  },
+  "licenseFilename": "LICENSE.md"
+}

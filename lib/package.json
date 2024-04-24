@@ -1,0 +1,58 @@
+{
+  "name": "rn-barcode-renderer",
+  "private": false,
+  "description": "Barcode and Qr Code renderer for React Native based on @shopify/react-native-skia",
+  "version": "1.0.0",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "rm -rf dist && tsc -p ./tsconfig.build.json",
+    "dev": "tsc --watch",
+    "typecheck": "tsc --noEmit"
+  },
+  "keywords": [
+    "react-native",
+    "expo",
+    "barcode",
+    "qrcode"
+  ],
+  "author": "Igor Trnko",
+  "license": "MIT",
+  "licenseFilename": "LICENSE.md",
+  "repository": {
+    "url": "https://github.com/trca1996/rn-barcode-renderer",
+    "type": "git"
+  },
+  "bugs": {
+    "url": "https://github.com/trca1996/rn-barcode-renderer/issues"
+  },
+  "homepage": "https://github.com/trca1996/rn-barcode-renderer#readme",
+  "peerDependencies": {
+    "@shopify/react-native-skia": ">=0.1.190",
+    "react": "*",
+    "react-native": "*"
+  },
+  "devDependencies": {
+    "@types/qrcode": "^1.5.5",
+    "@types/react": "^18.2.0",
+    "typescript": "^5.1.6"
+  },
+  "dependencies": {
+    "jsbarcode": "^3.11.6",
+    "qrcode": "^1.5.3"
+  },
+  "exports": {
+    ".": [
+      {
+        "imports": "./dist/index.js",
+        "types": "./dist/index.d.ts"
+      },
+      "./dist/index.js"
+    ]
+  },
+  "files": [
+    "dist/**",
+    "README.md",
+    "LICENSE.md"
+  ]
+}
