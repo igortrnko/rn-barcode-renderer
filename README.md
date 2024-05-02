@@ -124,7 +124,7 @@ return (
 | onError      | () => void                                            | Callback function to handle errors. Should be wrapped in useCallback.                     |
 | renderLogo   | (defaultProps: { qrSize: number }) => React.ReactNode | Function to render a logo on the QR code. Receives the default props: { qrSize: number }. |
 
-#### Methods (BarcodeView and QrCode)
+### Methods (BarcodeView and QrCode)
 
 | Method                                              | Description                                           |
 | --------------------------------------------------- | ----------------------------------------------------- |
@@ -132,6 +132,16 @@ return (
 | `getBase64(format?: ImageFormat, quality?: number)` | Returns the barcode image as a base64-encoded string. |
 | `getImageInfo()`                                    | Returns information about the barcode image.          |
 
-## LICENSE
+
+## Contributing
+
+1. Fork and clone the repository
+2. Install the project dependencies by running yarn install.
+3. To develop the library in unison with the example app you can run yarn dev
+4. Implement your changes, as well as any documentation.
+5. Create a changeset for your changes by running yarn changeset.
+6. Open a pull request with your changes and changeset.
+
+## License
 
 MIT
