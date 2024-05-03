@@ -10,6 +10,7 @@ concurrency: ${{ github.workflow }}-${{ github.ref }}
 jobs:
   release:
     name: Release
+    timeout-minutes: 10
     runs-on: ubuntu-latest
     if: github.repository == 'igortrnko/rn-barcode-renderer'
     steps:
@@ -32,7 +33,7 @@ jobs:
 
       - name: Create Release Pull Request or Publish to npm
         id: changesets
-        uses: changesets/action@master
+        uses: changesets/action@v1
         with:
           publish: yarn release
           commit: Version release
