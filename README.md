@@ -9,7 +9,7 @@ A Barcode and Qr Code renderer for React Native based on @shopify/react-native-s
 - Add gradient
 - Optional logotype for qr code
 
-##Installation
+## Installation
 
 Start by installing the peer dependencie of `rn-barcode-renderer`:
 
@@ -131,7 +131,6 @@ return (
 | `getBytes(format?: ImageFormat, quality?: number)`  | Returns the barcode image as a `Uint8Array`.          |
 | `getBase64(format?: ImageFormat, quality?: number)` | Returns the barcode image as a base64-encoded string. |
 | `getImageInfo()`                                    | Returns information about the barcode image.          |
-
 
 ## Contributing
 

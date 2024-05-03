@@ -2,7 +2,7 @@
   "name": "rn-barcode-renderer",
   "private": false,
   "description": "Barcode and Qr Code renderer for React Native based on @shopify/react-native-skia",
-  "version": "0.0.1",
+  "version": "0.0.0",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "scripts": {
@@ -54,5 +54,8 @@
     "dist/**",
     "README.md",
     "LICENSE.md"
-  ]
+  ],
+  "publishConfig": {
+    "access": "public"
+  }
 }
