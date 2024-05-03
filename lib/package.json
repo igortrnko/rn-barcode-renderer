@@ -20,13 +20,13 @@
   "license": "MIT",
   "licenseFilename": "LICENSE.md",
   "repository": {
-    "url": "https://github.com/trca1996/rn-barcode-renderer",
+    "url": "https://github.com/igortrnko/rn-barcode-renderer",
     "type": "git"
   },
   "bugs": {
-    "url": "https://github.com/trca1996/rn-barcode-renderer/issues"
+    "url": "https://github.com/igortrnko/rn-barcode-renderer/issues"
   },
-  "homepage": "https://github.com/trca1996/rn-barcode-renderer#readme",
+  "homepage": "https://github.com/igortrnko/rn-barcode-renderer#readme",
   "peerDependencies": {
     "@shopify/react-native-skia": ">=0.1.190",
     "react": "*",
