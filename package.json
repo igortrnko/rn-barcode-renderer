@@ -14,7 +14,8 @@
     "dev:example": "yarn workspace example start",
     "dev": "concurrently -n lib,example -c blue,green \"yarn dev:lib\" \"yarn dev:example\"",
     "dev:ios": "concurrently -n lib,example -c blue,green \"yarn dev:lib\" \"yarn dev:example --ios\"",
-    "check:code": "yarn lint && yarn typecheck"
+    "check:code": "yarn lint && yarn typecheck",
+    "release": "yarn build && yarn changeset publish"
   },
   "devDependencies": {
     "@changesets/cli": "^2.27.1",
