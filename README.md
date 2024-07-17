@@ -11,7 +11,7 @@ A Barcode and Qr Code renderer for React Native based on @shopify/react-native-s
 
 ## Installation
 
-Start by installing the peer dependencie of `rn-barcode-renderer`:
+Start by installing the peer dependency of `rn-barcode-renderer`:
 
 ```shell
 yarn add @shopify/react-native-skia
@@ -34,7 +34,7 @@ import { BarcodeView } from "rn-barcode-renderer";
 
 return <BarcodeView format="CODE128" value="123456" />;
 
-// Add bacground, bars color, border raidus, background blur effect, padding...
+// Add background, bars color, border raidus, background blur effect, padding...
 
 return (
   <BarcodeView
@@ -74,7 +74,7 @@ import { QrCode } from "rn-barcode-renderer";
 
 return <QrCode value="Hello World!" />;
 
-// Add bacground, color, border raidus, background blur effect, padding, change size...
+// Add background, color, border raidus, background blur effect, padding, change size...
 
 return (
   <QrCode
