@@ -1,5 +1,11 @@
 # rn-barcode-renderer
 
+## 1.0.4
+
+### Patch Changes
+
+- [#14](https://github.com/igortrnko/rn-barcode-renderer/pull/14) [`d5b8ea2`](https://github.com/igortrnko/rn-barcode-renderer/commit/d5b8ea2051cdd9746f2d119862d679ffa5aa8ab9) Thanks [@igortrnko](https://github.com/igortrnko)! - Update dependencies
+
 ## 1.0.3
 
 ### Patch Changes
