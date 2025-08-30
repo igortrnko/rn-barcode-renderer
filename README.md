@@ -17,6 +17,9 @@ Start by installing the peer dependency of `rn-barcode-renderer`:
 yarn add @shopify/react-native-skia
 ```
 
+React Native Skia requires `react-native-reanimated` to work, so you'll also need to install it.
+Please refer to [React Native Reanimated installation guide](https://docs.swmansion.com/react-native-reanimated/) for installation instructions.
+
 Then install `rn-barcode-renderer`:
 
 ```shell

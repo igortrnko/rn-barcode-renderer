@@ -1,5 +1,4 @@
 import React, { useRef } from "react";
-import { registerRootComponent } from "expo";
 import { Button, StyleSheet, View } from "react-native";
 import {
   BarcodeView,
@@ -107,5 +106,3 @@ const styles = StyleSheet.create({
     gap: 20
   }
 });
-
-registerRootComponent(App);

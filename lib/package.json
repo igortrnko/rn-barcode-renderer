@@ -28,17 +28,23 @@
   },
   "homepage": "https://github.com/igortrnko/rn-barcode-renderer#readme",
   "peerDependencies": {
-    "@shopify/react-native-skia": ">=0.1.190",
-    "react": "*",
-    "react-native": "*"
+    "@shopify/react-native-skia": ">=2.0.0",
+    "react-native-reanimated": ">=3.19.1",
+    "react": ">=19",
+    "react-native": ">=0.79"
+  },
+  "peerDependenciesMeta": {
+    "react-native-reanimated": {
+      "optional": true
+    }
   },
   "devDependencies": {
     "@types/qrcode": "^1.5.5",
-    "@types/react": "^18.2.0",
-    "typescript": "^5.1.6"
+    "@types/react": "^19.1.12",
+    "typescript": "^5.9.2"
   },
   "dependencies": {
-    "jsbarcode": "^3.11.6",
+    "jsbarcode": "^3.12.1",
     "qrcode": "^1.5.4"
   },
   "exports": {
