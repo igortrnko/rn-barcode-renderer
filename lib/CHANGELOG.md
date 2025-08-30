@@ -1,5 +1,11 @@
 # rn-barcode-renderer
 
+## 2.0.1
+
+### Patch Changes
+
+- [#19](https://github.com/igortrnko/rn-barcode-renderer/pull/19) [`55868c1`](https://github.com/igortrnko/rn-barcode-renderer/commit/55868c13ff8cba42a169d50a6952057b85700976) Thanks [@igortrnko](https://github.com/igortrnko)! - fix exports
+
 ## 2.0.0
 
 ### Major Changes
