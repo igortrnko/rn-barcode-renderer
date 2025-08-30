@@ -50,10 +50,9 @@
   "exports": {
     ".": [
       {
-        "imports": "./dist/index.js",
-        "types": "./dist/index.d.ts"
-      },
-      "./dist/index.js"
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      }
     ]
   },
   "files": [
