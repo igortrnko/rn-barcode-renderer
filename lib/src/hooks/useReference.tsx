@@ -1,8 +1,8 @@
 import { ImageFormat, useCanvasRef } from "@shopify/react-native-skia";
-import { useImperativeHandle, type ForwardedRef } from "react";
+import { useImperativeHandle, type Ref } from "react";
 import type { BarcodeViewRef } from "../types";
 
-export function useReference(ref: ForwardedRef<BarcodeViewRef>) {
+export function useReference(ref?: Ref<BarcodeViewRef>) {
   const canvasRef = useCanvasRef();
 
   useImperativeHandle(ref, () => ({

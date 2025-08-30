@@ -1,4 +1,4 @@
-import React, { forwardRef, useMemo } from "react";
+import React, { useMemo, type Ref } from "react";
 import { Canvas, Path } from "@shopify/react-native-skia";
 import { getQrPath, matrix } from "../helpers/qr-helpers";
 import type { BarcodeViewRef, ErrorCorrectionLevel } from "../types";
@@ -55,26 +55,26 @@ export interface QrCodeProps extends Partial<LinearGradientProps> {
    * Function to render a logo on the QR code.
    * Receives the default props: { qrSize: number }.
    */
-  renderLogo?: (defaultProps: { qrSize: number }) => React.ReactNode;
+  renderLogo?: (defaultProps: { qrSize: number }) => React.JSX.Element;
+
+  ref?: Ref<BarcodeViewRef>;
 }
 
-export const QrCode = forwardRef<BarcodeViewRef, QrCodeProps>(function QrCode(
-  {
-    value,
-    size = 100,
-    padding = 0,
-    borderRadius = 0,
-    bgBlur = 0,
-    color = "black",
-    bgColor = "white",
-    linearGradient,
-    gradientDirection,
-    ecl = "M",
-    onError,
-    renderLogo
-  },
+export function QrCode({
+  value,
+  size = 100,
+  padding = 0,
+  borderRadius = 0,
+  bgBlur = 0,
+  color = "black",
+  bgColor = "white",
+  linearGradient,
+  gradientDirection,
+  ecl = "M",
+  onError,
+  renderLogo,
   ref
-) {
+}: QrCodeProps) {
   const canvasRef = useReference(ref);
 
   const { path, canvas, qrSize } = useMemo(() => {
@@ -129,4 +129,4 @@ export const QrCode = forwardRef<BarcodeViewRef, QrCodeProps>(function QrCode(
       {renderLogo && renderLogo({ qrSize: size })}
     </Canvas>
   );
-});
+}

@@ -1,5 +1,5 @@
 import { Canvas, Path } from "@shopify/react-native-skia";
-import React, { forwardRef, useMemo } from "react";
+import React, { useMemo, type Ref } from "react";
 import type { BarcodeViewRef, Format } from "../types";
 import {
   encode,
@@ -56,101 +56,99 @@ export interface BarcodeViewProps extends Partial<LinearGradientProps> {
    * The blur radius for the background of the barcode. Default is 0.
    */
   bgBlur?: number;
+
+  ref?: Ref<BarcodeViewRef>;
 }
 
-export const BarcodeView = forwardRef<BarcodeViewRef, BarcodeViewProps>(
-  function BarcodeView(
-    {
+export function BarcodeView({
+  value,
+  format,
+  barWidth = 2,
+  height = 100,
+  color = "#000000",
+  bgColor = "#ffffff",
+  onError,
+  maxWidth,
+  padding,
+  borderRadius = 0,
+  bgBlur = 0,
+  gradientDirection,
+  linearGradient,
+  ref
+}: BarcodeViewProps) {
+  const canvasRef = useReference(ref);
+
+  const { path, canvas } = useMemo(() => {
+    const encoded = encode({
       value,
       format,
-      barWidth = 2,
-      height = 100,
-      color = "#000000",
-      bgColor = "#ffffff",
-      onError,
-      maxWidth,
-      padding,
-      borderRadius = 0,
-      bgBlur = 0,
-      gradientDirection,
-      linearGradient
-    },
-    ref
-  ) {
-    const canvasRef = useReference(ref);
+      width: barWidth,
+      height,
+      onError
+    });
 
-    const { path, canvas } = useMemo(() => {
-      const encoded = encode({
-        value,
-        format,
-        width: barWidth,
-        height,
-        onError
-      });
-
-      if (!encoded) {
-        return {
-          path: null,
-          canvas: {
-            width: 0,
-            height: 0,
-            scale: 0
-          }
-        };
-      }
-
-      const path = getSkiaPath({
-        binary: encoded.data,
-        barWidth,
-        height,
-        padding
-      });
-
-      const canvasProps = getCanvasProps(
-        encoded.data.length,
-        height,
-        barWidth,
-        padding,
-        maxWidth
-      );
-
+    if (!encoded) {
       return {
-        path,
-        canvas: canvasProps
+        path: null,
+        canvas: {
+          width: 0,
+          height: 0,
+          scale: 0
+        }
       };
-    }, [value, format, barWidth, height, onError, padding, maxWidth]);
+    }
 
-    if (!path) return null;
+    const path = getSkiaPath({
+      binary: encoded.data,
+      barWidth,
+      height,
+      padding
+    });
 
-    return (
-      <Canvas
-        ref={canvasRef}
-        style={{
-          width: canvas.width,
-          height: canvas.height,
-          backgroundColor: "transparent",
-          transform: [{ scaleX: canvas.scale }]
-        }}
-      >
-        <WrapperRect
-          canvasWidth={canvas.width}
-          canvasHeight={canvas.height}
-          background={bgColor}
-          bgBlur={bgBlur}
-          borderRadius={borderRadius}
-        />
-
-        <Path path={path} color={color}>
-          {linearGradient && (
-            <LinearGradient
-              linearGradient={linearGradient}
-              gradientDirection={gradientDirection}
-              sizeVertical={height}
-              sizeHorizontal={canvas.width / canvas.scale}
-            />
-          )}
-        </Path>
-      </Canvas>
+    const canvasProps = getCanvasProps(
+      encoded.data.length,
+      height,
+      barWidth,
+      padding,
+      maxWidth
     );
-  }
-);
+
+    return {
+      path,
+      canvas: canvasProps
+    };
+  }, [value, format, barWidth, height, onError, padding, maxWidth]);
+
+  if (!path) return null;
+
+  return (
+    <Canvas
+      ref={canvasRef}
+      style={{
+        width: canvas.width,
+        height: canvas.height,
+        backgroundColor: "transparent",
+        transform: [{ scaleX: canvas.scale }]
+      }}
+    >
+      <WrapperRect
+        canvasWidth={canvas.width}
+        canvasHeight={canvas.height}
+        background={bgColor}
+        bgBlur={bgBlur}
+        borderRadius={borderRadius}
+      />
+
+      <Path path={path} color={color}>
+        {linearGradient && (
+          <LinearGradient
+            linearGradient={linearGradient}
+            gradientDirection={gradientDirection}
+            sizeVertical={height}
+            sizeHorizontal={canvas.width / canvas.scale}
+          />
+        )}
+      </Path>
+    </Canvas>
+  );
+}
