@@ -1,5 +1,11 @@
 # rn-barcode-renderer
 
+## 2.1.0
+
+### Minor Changes
+
+- [#21](https://github.com/igortrnko/rn-barcode-renderer/pull/21) [`d5925c9`](https://github.com/igortrnko/rn-barcode-renderer/commit/d5925c9f79305b5fcadaa225d79df5dab7cda0dc) Thanks [@rvieceli](https://github.com/rvieceli)! - Update @shopify/react-native-skia to 2.6.x and migrate barcode / QR rendering to the immutable path API
+
 ## 2.0.1
 
 ### Patch Changes
@@ -17,7 +23,6 @@
   - **Skia Version Requirement**: Updated to require @shopify/react-native-skia 2.0.0+ (previously 0.1.190+)
 
   ## What Changed
-
   - Updated peer dependencies to align with React 19 ecosystem
   - Updated @shopify/react-native-skia requirement to 2.0.0+ for better compatibility
   - Updated react-native-reanimated to 3.19.1+ (new requirement)
