@@ -2,8 +2,9 @@ import barcodes from "jsbarcode/src/barcodes";
 import { Skia } from "@shopify/react-native-skia";
 import type { Options } from "../types";
 
-interface EncodeOptions
-  extends Required<Pick<Options, "width" | "format" | "height">> {
+interface EncodeOptions extends Required<
+  Pick<Options, "width" | "format" | "height">
+> {
   value: string;
   onError?: () => void;
 }
@@ -72,7 +73,8 @@ export function getSkiaPath({
   let x = 0;
   let barWidthMultiplier = 0;
 
-  const path = Skia.Path.Make();
+  // Build path using PathBuilder (immutable Path API migration)
+  const builder = Skia.PathBuilder.Make();
 
   for (let b = 0; b < binary.length; b++) {
     x = b * barWidth + padding;
@@ -80,7 +82,7 @@ export function getSkiaPath({
     if (binary[b] === "1") {
       barWidthMultiplier++;
     } else if (barWidth > 0) {
-      path.addRect({
+      builder.addRect({
         x: x - barWidth * barWidthMultiplier,
         y: yFrom,
         width: barWidth * barWidthMultiplier,
@@ -92,7 +94,7 @@ export function getSkiaPath({
 
   // Last draw is needed since the barcode ends with 1
   if (barWidthMultiplier > 0) {
-    path.addRect({
+    builder.addRect({
       x: x - barWidth * (barWidthMultiplier - 1),
       y: yFrom,
       width: barWidth * barWidthMultiplier,
@@ -100,5 +102,5 @@ export function getSkiaPath({
     });
   }
 
-  return path;
+  return builder.build();
 }
