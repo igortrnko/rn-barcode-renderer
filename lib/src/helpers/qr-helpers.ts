@@ -27,28 +27,28 @@ export function matrix(
 
 export function getQrPath(matrix: number[][], size: number, padding = 0) {
   const cellSize = size / matrix.length;
-  const path = Skia.Path.Make();
+  const builder = Skia.PathBuilder.Make();
 
   matrix.forEach((row, i) => {
     let needDraw = false;
     row.forEach((column, j) => {
       if (column) {
         if (!needDraw) {
-          path.moveTo(
+          builder.moveTo(
             cellSize * j + padding,
             cellSize / 2 + cellSize * i + padding
           );
           needDraw = true;
         }
         if (needDraw && j === matrix.length - 1) {
-          path.lineTo(
+          builder.lineTo(
             cellSize * (j + 1) + padding,
             cellSize / 2 + cellSize * i + padding
           );
         }
       } else {
         if (needDraw) {
-          path.lineTo(
+          builder.lineTo(
             cellSize * j + padding,
             cellSize / 2 + cellSize * i + padding
           );
@@ -58,7 +58,9 @@ export function getQrPath(matrix: number[][], size: number, padding = 0) {
     });
   });
 
-  path.stroke({ width: cellSize, cap: StrokeCap.Butt });
+  const path = builder.build();
+  const stroked =
+    Skia.Path.Stroke(path, { width: cellSize, cap: StrokeCap.Butt }) ?? path;
 
-  return path;
+  return stroked;
 }

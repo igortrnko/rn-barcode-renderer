@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import { Button, StyleSheet, View } from "react-native";
+import { Button, StyleSheet, ScrollView } from "react-native";
 import {
   BarcodeView,
   QrCode,
@@ -13,7 +13,7 @@ export default function App() {
   const qrRef = useRef<BarcodeViewRef>(null);
 
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container} contentContainerStyle={styles.content}>
       <BarcodeView ref={barcodeRef} format="CODE128" value="123456" />
 
       <BarcodeView
@@ -92,7 +92,7 @@ export default function App() {
           console.log(qrRef.current?.getBase64(ImageFormat.JPEG, 100));
         }}
       />
-    </View>
+    </ScrollView>
   );
 }
 
@@ -101,7 +101,9 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: "column",
     paddingVertical: 60,
-    backgroundColor: "#fff",
+    backgroundColor: "#fff"
+  },
+  content: {
     alignItems: "center",
     gap: 20
   }

@@ -1,6 +1,5 @@
 {
   "compilerOptions": {
-    "baseUrl": "./",
     "paths": {
       "rn-barcode-renderer": ["./lib/src/index"]
     },
