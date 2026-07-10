@@ -1,5 +1,11 @@
 # rn-barcode-renderer
 
+## 2.1.1
+
+### Patch Changes
+
+- [#23](https://github.com/igortrnko/rn-barcode-renderer/pull/23) [`96fb7f5`](https://github.com/igortrnko/rn-barcode-renderer/commit/96fb7f5c709e86dc9be1b96b34eba4a9e157daa6) Thanks [@igortrnko](https://github.com/igortrnko)! - Publish to npm via GitHub Actions Trusted Publishing (OIDC) with provenance attestations. No runtime code changes.
+
 ## 2.1.0
 
 ### Minor Changes
