@@ -7,7 +7,7 @@
   ],
   "license": "MIT",
   "scripts": {
-    "lint": "eslint --ext .js,.ts,.tsx example lib",
+    "lint": "eslint example lib",
     "typecheck": "tsc --noEmit",
     "build": "shx cp README.md ./lib/README.md && yarn workspace rn-barcode-renderer build",
     "dev:lib": "yarn workspace rn-barcode-renderer dev",
@@ -19,21 +19,24 @@
   },
   "devDependencies": {
     "@changesets/changelog-github": "^0.7.0",
-    "@changesets/cli": "^2.31.0",
-    "@types/node": "^20.12.7",
-    "@typescript-eslint/eslint-plugin": "^7.6.0",
-    "@typescript-eslint/parser": "^7.6.0",
-    "concurrently": "^8.2.2",
-    "eslint": "^8.46.0",
-    "eslint-config-prettier": "^8.8.0",
-    "eslint-import-resolver-typescript": "^3.6.0",
-    "eslint-plugin-import": "^2.27.5",
-    "eslint-plugin-prettier": "^5.0.0",
-    "eslint-plugin-react": "^7.33.1",
-    "eslint-plugin-react-hooks": "^4.6.0",
-    "prettier": "^3.0.1",
-    "shx": "^0.3.4",
-    "typescript": "~6.0.3"
+    "@changesets/cli": "^2.31.1",
+    "@eslint/js": "^10.0.1",
+    "@types/node": "^22.19.0",
+    "concurrently": "^10.0.7",
+    "eslint": "^10.15.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-import-resolver-typescript": "^4.4.5",
+    "eslint-plugin-import-x": "^4.18.1",
+    "eslint-plugin-prettier": "^5.5.7",
+    "eslint-plugin-react-x": "^5.30.6",
+    "globals": "^17.14.0",
+    "prettier": "^3.10.1",
+    "shx": "^0.4.0",
+    "typescript": "~6.0.3",
+    "typescript-eslint": "^8.73.0"
+  },
+  "resolutions": {
+    "**/@expo/fingerprint/minimatch": "^11.0.1"
   },
   "licenseFilename": "LICENSE.md"
 }
