@@ -1,5 +1,11 @@
 # rn-barcode-renderer
 
+## 2.1.2
+
+### Patch Changes
+
+- [#26](https://github.com/igortrnko/rn-barcode-renderer/pull/26) [`5999251`](https://github.com/igortrnko/rn-barcode-renderer/commit/59992513c1fcbb9aed706e5ffd596266f3fdf8d0) Thanks [@igortrnko](https://github.com/igortrnko)! - Stop shipping `@shopify/react-native-skia` as a runtime dependency. It was listed in both `dependencies` and `peerDependencies`, which could install a second copy of Skia next to the app's own and cause a JS/native version mismatch. Skia is now a peer dependency only (`>=2.6.0`, unchanged), so the app's installed version is always used. Also bumps `jsbarcode` to `^3.12.3`.
+
 ## 2.1.1
 
 ### Patch Changes
